@@ -144,3 +144,75 @@ footer {
   color: #e0e0e0;
   margin-top: 50px;
 }
+/* ===== Línea del tiempo visual ===== */
+.timeline-visual {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  position: relative;
+  padding: 0 10px;
+}
+
+.timeline-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background-color: #a3d9a5;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-visual .event {
+  position: relative;
+  width: 120px;
+  text-align: center;
+  z-index: 2;
+}
+
+.timeline-visual .event .circle {
+  width: 20px;
+  height: 20px;
+  background-color: #a3d9a5;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+}
+
+/* ===== Civilizaciones fluviales visuales ===== */
+.civilizations-visual {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.civ-card {
+  flex: 1 1 45%;
+  background-color: #013220;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.civ-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+/* Colores por civilización */
+.civ-card.mesopotamia { border-top: 4px solid #f2a900; }
+.civ-card.egipto { border-top: 4px solid #ff6f61; }
+.civ-card.india { border-top: 4px solid #00a1e4; }
+.civ-card.china { border-top: 4px solid #a3d9a5; }
+
+.civ-card h3 {
+  color: #a3d9a5;
+  margin-bottom: 5px;
+}
+
