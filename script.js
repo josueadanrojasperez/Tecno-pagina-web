@@ -1,4 +1,4 @@
-// ===== PARTICULAS Y EFECTO 3D =====
+// Partículas interactivas y efecto 3D
 const cards = document.querySelectorAll('.card-inner');
 
 cards.forEach(card => {
@@ -63,5 +63,40 @@ cards.forEach(card => {
 
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 80) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(163,217,165,${1 - distance / 80})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
 
+    requestAnimationFrame(animateParticles);
+  }
+
+  animateParticles();
+});
+
+// Animación scroll
+const animatedElements = document.querySelectorAll('.animated');
+
+function checkScroll() {
+  const triggerBottom = window.innerHeight * 0.9;
+
+  animatedElements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
+    if(top < triggerBottom) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
