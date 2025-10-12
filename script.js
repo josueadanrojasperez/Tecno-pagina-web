@@ -4,19 +4,26 @@ const cards = document.querySelectorAll('.card-inner');
 cards.forEach(card => {
   const canvas = card.querySelector('.particles');
   const ctx = canvas.getContext('2d');
-  canvas.width = card.offsetWidth;
-  canvas.height = card.offsetHeight;
 
   const particles = [];
   const particleCount = 50;
 
+  function resizeCanvas() {
+    canvas.width = card.offsetWidth;
+    canvas.height = card.offsetHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  // Crear partículas
   for (let i = 0; i < particleCount; i++) {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 0.5,
-      dy: (Math.random() - 0.5) * 0.5
+      dx: (Math.random() - 0.5) * 1.5,
+      dy: (Math.random() - 0.5) * 1.5
     });
   }
 
@@ -47,13 +54,15 @@ cards.forEach(card => {
     particles.forEach(p => {
       p.x += p.dx;
       p.y += p.dy;
+
       if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
       if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
+      // Movimiento ligero hacia el mouse
       const distX = mouse.x - p.x;
       const distY = mouse.y - p.y;
-      p.x += distX * 0.01;
-      p.y += distY * 0.01;
+      p.x += distX * 0.003;
+      p.y += distY * 0.003;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -61,6 +70,7 @@ cards.forEach(card => {
       ctx.fill();
     });
 
+    // Dibujar líneas entre partículas cercanas
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -100,3 +110,5 @@ function checkScroll() {
 
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
+
+
