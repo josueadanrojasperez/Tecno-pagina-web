@@ -9,7 +9,7 @@
 
 /* ===== BODY ===== */
 body {
-  background-color: #0b1a0b; /* fondo negro verdoso */
+  background-color: #0b1a0b;
   color: #e0e0e0;
 }
 
@@ -30,13 +30,28 @@ header p {
   font-size: 1.1em;
 }
 
-/* ===== INTERACTIVE PANEL ===== */
-.interactive-panel {
+/* ===== SECCIONES ===== */
+section {
+  margin: 50px 0;
+  text-align: center;
+}
+
+section h2 {
+  color: #a3d9a5;
+  margin-bottom: 10px;
+}
+
+section p {
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+/* ===== CONTENEDOR DE EVIDENCIAS ===== */
+.evidences {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-  padding: 50px 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* ===== CARDS ===== */
@@ -56,7 +71,7 @@ header p {
   box-shadow: 0 15px 40px rgba(0,0,0,0.7);
   overflow: hidden;
   color: #e0e0e0;
-  opacity: 1; /* Mantener visible */
+  opacity: 1;
 }
 
 .card-inner:hover {
@@ -75,7 +90,7 @@ header p {
   transform: scale(1.1) rotate(2deg);
 }
 
-.card-inner h2 {
+.card-inner h3 {
   color: #a3d9a5;
   margin-bottom: 10px;
 }
@@ -113,38 +128,19 @@ header p {
   pointer-events: none;
 }
 
-/* ===== HISTORIA / TIMELINE ===== */
-.timeline, .civilizations {
-  text-align: left;
-  margin: 15px 0;
-  background-color: rgba(0,0,0,0.2);
-  padding: 15px;
-  border-radius: 15px;
+/* ===== ANIMACIONES DE SCROLL ===== */
+.animated {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
 
-.timeline h3, .civilizations h3 {
-  color: #a3d9a5;
-  margin-bottom: 10px;
+.animated.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.timeline ul, .civilizations ul {
-  list-style: none;
-  padding-left: 10px;
-}
-
-.timeline li, .civilizations li {
-  margin-bottom: 8px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #013220;
-  color: #e0e0e0;
-  margin-top: 50px;
-}
-/* ===== Línea del tiempo visual ===== */
+/* ===== LÍNEA DEL TIEMPO VISUAL ===== */
 .timeline-visual {
   display: flex;
   justify-content: space-between;
@@ -181,7 +177,7 @@ footer {
   margin: 0 auto 10px auto;
 }
 
-/* ===== Civilizaciones fluviales visuales ===== */
+/* ===== CIVILIZACIONES VISUALES ===== */
 .civilizations-visual {
   display: flex;
   flex-wrap: wrap;
@@ -205,7 +201,6 @@ footer {
   box-shadow: 0 15px 35px rgba(0,0,0,0.7);
 }
 
-/* Colores por civilización */
 .civ-card.mesopotamia { border-top: 4px solid #f2a900; }
 .civ-card.egipto { border-top: 4px solid #ff6f61; }
 .civ-card.india { border-top: 4px solid #00a1e4; }
@@ -216,3 +211,11 @@ footer {
   margin-bottom: 5px;
 }
 
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #013220;
+  color: #e0e0e0;
+  margin-top: 50px;
+}
