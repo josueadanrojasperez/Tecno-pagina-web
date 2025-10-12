@@ -7,13 +7,11 @@
   scroll-behavior: smooth;
 }
 
-/* ===== BODY ===== */
 body {
   background-color: #0b1a0b;
   color: #e0e0e0;
 }
 
-/* ===== HEADER ===== */
 header {
   text-align: center;
   padding: 50px 10px;
@@ -30,7 +28,6 @@ header p {
   font-size: 1.1em;
 }
 
-/* ===== SECCIONES ===== */
 section {
   margin: 50px 0;
   text-align: center;
@@ -46,18 +43,12 @@ section p {
   font-size: 1em;
 }
 
-/* ===== CONTENEDOR DE EVIDENCIAS ===== */
-.evidences {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* ===== CARDS ===== */
+/* Tarjetas */
 .card {
   position: relative;
   perspective: 1200px;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .card-inner {
@@ -65,13 +56,11 @@ section p {
   background-color: #013220;
   border-radius: 25px;
   padding: 25px;
-  max-width: 400px;
   text-align: center;
   transition: transform 0.5s, box-shadow 0.5s;
   box-shadow: 0 15px 40px rgba(0,0,0,0.7);
   overflow: hidden;
   color: #e0e0e0;
-  opacity: 1;
 }
 
 .card-inner:hover {
@@ -79,68 +68,12 @@ section p {
   box-shadow: 0 25px 50px rgba(0,0,0,0.9);
 }
 
-.card-inner img {
-  width: 100%;
-  border-radius: 15px;
-  margin: 15px 0;
-  transition: transform 0.5s;
-}
-
-.card-inner img:hover {
-  transform: scale(1.1) rotate(2deg);
-}
-
 .card-inner h3 {
   color: #a3d9a5;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.card-inner p {
-  margin-bottom: 15px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #a3d9a5;
-  color: #013220;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-  position: relative;
-  z-index: 2;
-}
-
-.btn:hover {
-  background-color: #6fa976;
-  transform: scale(1.1) rotate(-1deg);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-}
-
-/* ===== PARTICULAS ===== */
-.particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* ===== ANIMACIONES DE SCROLL ===== */
-.animated {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.animated.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== LÍNEA DEL TIEMPO VISUAL ===== */
+/* Línea del tiempo */
 .timeline-visual {
   display: flex;
   justify-content: space-between;
@@ -164,7 +97,7 @@ section p {
 
 .timeline-visual .event {
   position: relative;
-  width: 120px;
+  width: 180px;
   text-align: center;
   z-index: 2;
 }
@@ -177,7 +110,7 @@ section p {
   margin: 0 auto 10px auto;
 }
 
-/* ===== CIVILIZACIONES VISUALES ===== */
+/* Civilizaciones */
 .civilizations-visual {
   display: flex;
   flex-wrap: wrap;
@@ -211,7 +144,28 @@ section p {
   margin-bottom: 5px;
 }
 
-/* ===== FOOTER ===== */
+/* Partículas */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Animación scroll */
+.animated {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animated.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 footer {
   text-align: center;
   padding: 20px;
