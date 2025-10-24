@@ -1,114 +1,32 @@
-// Partículas interactivas y efecto 3D
-const cards = document.querySelectorAll('.card-inner');
+// Partículas de fondo
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let particlesArray = [];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-cards.forEach(card => {
-  const canvas = card.querySelector('.particles');
-  const ctx = canvas.getContext('2d');
-
-  const particles = [];
-  const particleCount = 50;
-
-  function resizeCanvas() {
-    canvas.width = card.offsetWidth;
-    canvas.height = card.offsetHeight;
+class Particle {
+  constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height;
+    this.size=Math.random()*3+1; this.speedX=Math.random()*1.5-0.75; this.speedY=Math.random()*1.5-0.75;}
+  update(){ this.x+=this.speedX; this.y+=this.speedY;
+    if(this.x<0||this.x>canvas.width)this.speedX*=-1;
+    if(this.y<0||this.y>canvas.height)this.speedY*=-1;
   }
-
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  // Crear partículas
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 2 + 1,
-      dx: (Math.random() - 0.5) * 1.5,
-      dy: (Math.random() - 0.5) * 1.5
-    });
-  }
-
-  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.5) * 20;
-    const rotateY = ((x / rect.width) - 0.5) * 20;
-    card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-
-    mouse.x = x;
-    mouse.y = y;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    mouse.x = canvas.width / 2;
-    mouse.y = canvas.height / 2;
-  });
-
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-      p.x += p.dx;
-      p.y += p.dy;
-
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-      // Movimiento ligero hacia el mouse
-      const distX = mouse.x - p.x;
-      const distY = mouse.y - p.y;
-      p.x += distX * 0.003;
-      p.y += distY * 0.003;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#a3d9a5';
-      ctx.fill();
-    });
-
-    // Dibujar líneas entre partículas cercanas
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 80) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(163,217,165,${1 - distance / 80})`;
-          ctx.lineWidth = 1;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(animateParticles);
-  }
-
-  animateParticles();
-});
-
-// Animación scroll
-const animatedElements = document.querySelectorAll('.animated');
-
-function checkScroll() {
-  const triggerBottom = window.innerHeight * 0.9;
-
-  animatedElements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-
-    if(top < triggerBottom) {
-      el.classList.add('show');
-    }
-  });
+  draw(){ ctx.fillStyle="rgba(0,255,0,0.5)"; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();}
 }
+function init(){ particlesArray=[]; for(let i=0;i<70;i++){ particlesArray.push(new Particle()); } }
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animate);}
+init(); animate();
+window.addEventListener("resize",()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight; init();});
 
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
-
-
+// Mostrar secciones al hacer click
+const cards = document.querySelectorAll(".materia-card");
+const sections = document.querySelectorAll(".materia-seccion");
+cards.forEach(card=>{
+  card.addEventListener("click", ()=>{
+    const target = card.getAttribute("data-target");
+    sections.forEach(s=>s.classList.remove("active"));
+    document.getElementById(target).classList.add("active");
+    document.getElementById(target).scrollIntoView({behavior:"smooth"});
+  });
+});
