@@ -3,109 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trabajos de Josue Adan Rojas Perez</title>
+  <title>Trabajos Secundaria</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="particles"></canvas>
+
   <header>
-    <h1>Trabajos de Josue Adan Rojas Perez</h1>
+    <h1>Trabajos Secundaria</h1>
+    <p>Proyectos de Tecnológicas, Química, Matemáticas e Historia</p>
   </header>
 
-  <main class="menu-materias">
-    <!-- Mosaicos de materias -->
-    <div class="materias">
-      <div class="materia-card" data-target="historia-section">
-        <h2>Historia</h2>
-      </div>
-      <div class="materia-card" data-target="tecnologia-section">
-        <h2>Tecnología</h2>
-      </div>
-      <div class="materia-card" data-target="quimica-section">
-        <h2>Química</h2>
-      </div>
-      <div class="materia-card" data-target="matematicas-section">
-        <h2>Matemáticas</h2>
-      </div>
-    </div>
+  <main class="interactive-panel">
 
-    <!-- Secciones de materias -->
-    <section id="historia-section" class="materia-seccion">
-      <h2>Historia</h2>
-      <p class="desc">Explora la prehistoria y las primeras civilizaciones fluviales.</p>
-
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="event">
-            <div class="circle">2,500,000 a.C.</div>
-            <div class="content">
-              <h4>Edad de Piedra</h4>
-              <p>Herramientas de piedra y fuego.</p>
-            </div>
-          </div>
-          <div class="event">
-            <div class="circle">3,000 a.C.</div>
-            <div class="content">
-              <h4>Edad de los Metales</h4>
-              <p>Uso de cobre, bronce e hierro.</p>
-            </div>
-          </div>
-          <div class="event">
-            <div class="circle">3,500 a.C.</div>
-            <div class="content">
-              <h4>Mesopotamia</h4>
-              <p>Invención de la escritura cuneiforme.</p>
-            </div>
-          </div>
-          <div class="event">
-            <div class="circle">3,100 a.C.</div>
-            <div class="content">
-              <h4>Egipto</h4>
-              <p>Pirámides y escritura jeroglífica.</p>
-            </div>
-          </div>
-          <div class="event">
-            <div class="circle">2,600 a.C.</div>
-            <div class="content">
-              <h4>Valle del Indo</h4>
-              <p>Urbanismo y drenaje organizado.</p>
-            </div>
-          </div>
-          <div class="event">
-            <div class="circle">2,200 a.C.</div>
-            <div class="content">
-              <h4>China (Huang He)</h4>
-              <p>Desarrollo agrícola y administración centralizada.</p>
-            </div>
+    <!-- ===== TECNOLÓGICAS ===== -->
+    <section id="tecno">
+      <h2>💡 Tecnológicas</h2>
+      <p>Proyectos de programación, robótica y desarrollo web.</p>
+      <div class="evidences">
+        <div class="card">
+          <div class="card-inner animated">
+            <h3>Evidencia Tecnológica</h3>
+            <p>Agregar proyecto de Tecnológicas aquí.</p>
+            <canvas class="particles"></canvas>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="tecnologia-section" class="materia-seccion">
-      <h2>Tecnología</h2>
-      <p class="desc">Panel de tecnología. Aquí podrás agregar evidencias futuramente.</p>
+    <!-- ===== QUÍMICA ===== -->
+    <section id="quimica">
+      <h2>🧪 Química</h2>
+      <p>Observa los experimentos y análisis químicos.</p>
+      <div class="evidences">
+        <div class="card">
+          <div class="card-inner animated">
+            <h3>Evidencia de Química</h3>
+            <p>Agregar proyecto de Química aquí.</p>
+            <canvas class="particles"></canvas>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="quimica-section" class="materia-seccion">
-      <h2>Química</h2>
-      <p class="desc">Panel de química. Aquí podrás agregar evidencias futuramente.</p>
+    <!-- ===== MATEMÁTICAS ===== -->
+    <section id="mates">
+      <h2>📊 Matemáticas</h2>
+      <p>Ejercicios y análisis matemáticos para desarrollar el pensamiento lógico.</p>
+      <div class="evidences">
+        <div class="card">
+          <div class="card-inner animated">
+            <h3>Evidencia de Matemáticas</h3>
+            <p>Agregar proyecto de Matemáticas aquí.</p>
+            <canvas class="particles"></canvas>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="matematicas-section" class="materia-seccion">
-      <h2>Matemáticas</h2>
-      <p class="desc">Panel de matemáticas. Aquí podrás agregar evidencias futuramente.</p>
+    <!-- ===== HISTORIA ===== -->
+    <section id="historia">
+      <h2>📜 Historia</h2>
+      <p>Explora la Prehistoria y las primeras civilizaciones.</p>
+
+      <!-- Tarjeta de evidencia completa -->
+      <div class="card">
+        <div class="card-inner animated">
+          <h3>Evidencia de Historia</h3>
+
+          <!-- Línea del tiempo visual -->
+          <div class="timeline-visual">
+            <div class="event">
+              <div class="circle"></div>
+              <p><strong>Edad de Piedra</strong><br>Uso de herramientas de piedra, caza y recolección</p>
+            </div>
+            <div class="event">
+              <div class="circle"></div>
+              <p><strong>Edad de los Metales</strong><br>Descubrimiento y uso del cobre, bronce y hierro</p>
+            </div>
+          </div>
+
+          <!-- Civilizaciones fluviales visuales -->
+          <div class="civilizations-visual">
+            <div class="civ-card mesopotamia">
+              <h3>Mesopotamia</h3>
+              <p>Ríos Tigris y Éufrates<br>Escritura cuneiforme y agricultura avanzada</p>
+            </div>
+            <div class="civ-card egipto">
+              <h3>Egipto</h3>
+              <p>Río Nilo<br>Pirámides y sistema de irrigación</p>
+            </div>
+            <div class="civ-card india">
+              <h3>India/Harappa</h3>
+              <p>Río Indo<br>Urbanismo planificado y alcantarillado</p>
+            </div>
+            <div class="civ-card china">
+              <h3>China</h3>
+              <p>Río Huang He<br>Agricultura del mijo y primeros gobiernos centralizados</p>
+            </div>
+          </div>
+
+          <canvas class="particles"></canvas>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2025 Josue Adan Rojas Perez</p>
+    <p>© 2025 | Proyecto de Materias - Desarrollado por Josue Adan Rojas Perez</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
