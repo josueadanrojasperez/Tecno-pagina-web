@@ -3,108 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trabajos Secundaria</title>
+  <title>Trabajos de Josue Adan Rojas Perez</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <canvas id="particles"></canvas>
   <header>
-    <h1>Trabajos Secundaria</h1>
-    <p>Proyectos de Tecnológicas, Química, Matemáticas e Historia</p>
+    <h1>Trabajos de Josue Adan Rojas Perez</h1>
   </header>
 
-  <main class="interactive-panel">
-
-    <!-- ===== TECNOLÓGICAS ===== -->
-    <section id="tecno">
-      <h2>💡 Tecnológicas</h2>
-      <p>Proyectos de programación, robótica y desarrollo web.</p>
-      <div class="evidences">
-        <div class="card">
-          <div class="card-inner animated">
-            <h3>Evidencia Tecnológica</h3>
-            <p>Agregar proyecto de Tecnológicas aquí.</p>
-            <canvas class="particles"></canvas>
-          </div>
-        </div>
+  <main class="menu-materias">
+    <!-- Mosaicos de materias -->
+    <div class="materias">
+      <div class="materia-card" data-target="historia-section">
+        <h2>Historia</h2>
       </div>
-    </section>
-
-    <!-- ===== QUÍMICA ===== -->
-    <section id="quimica">
-      <h2>🧪 Química</h2>
-      <p>Observa los experimentos y análisis químicos.</p>
-      <div class="evidences">
-        <div class="card">
-          <div class="card-inner animated">
-            <h3>Evidencia de Química</h3>
-            <p>Agregar proyecto de Química aquí.</p>
-            <canvas class="particles"></canvas>
-          </div>
-        </div>
+      <div class="materia-card" data-target="tecnologia-section">
+        <h2>Tecnología</h2>
       </div>
-    </section>
-
-    <!-- ===== MATEMÁTICAS ===== -->
-    <section id="mates">
-      <h2>📊 Matemáticas</h2>
-      <p>Ejercicios y análisis matemáticos para desarrollar el pensamiento lógico.</p>
-      <div class="evidences">
-        <div class="card">
-          <div class="card-inner animated">
-            <h3>Evidencia de Matemáticas</h3>
-            <p>Agregar proyecto de Matemáticas aquí.</p>
-            <canvas class="particles"></canvas>
-          </div>
-        </div>
+      <div class="materia-card" data-target="quimica-section">
+        <h2>Química</h2>
       </div>
-    </section>
-
-   <section id="historia" class="materia">
-  <h2>Historia</h2>
-  <p class="desc">Explora la prehistoria y las primeras civilizaciones fluviales.</p>
-
-  <h3>Línea del Tiempo</h3>
-  <div class="timeline-container">
-    <div class="timeline">
-      <div class="event">
-        <div class="content">
-          <h4>Edad de Piedra</h4>
-          <p>2,500,000 a.C. - 3,000 a.C.<br>Herramientas de piedra y fuego.</p>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <h4>Edad de los Metales</h4>
-          <p>3,000 a.C. - 1,200 a.C.<br>Uso de cobre, bronce e hierro.</p>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <h4>Mesopotamia</h4>
-          <p>3,500 a.C.<br>Invención de la escritura cuneiforme.</p>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <h4>Egipto</h4>
-          <p>3,100 a.C.<br>Pirámides y escritura jeroglífica.</p>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <h4>Valle del Indo</h4>
-          <p>2,600 a.C.<br>Urbanismo y drenaje organizado.</p>
-        </div>
-      </div>
-      <div class="event">
-        <div class="content">
-          <h4>China (Huang He)</h4>
-          <p>2,200 a.C.<br>Desarrollo agrícola y administración centralizada.</p>
-        </div>
+      <div class="materia-card" data-target="matematicas-section">
+        <h2>Matemáticas</h2>
       </div>
     </div>
-  </div>
-</section>
+
+    <!-- Secciones de materias -->
+    <section id="historia-section" class="materia-seccion">
+      <h2>Historia</h2>
+      <p class="desc">Explora la prehistoria y las primeras civilizaciones fluviales.</p>
+
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="event">
+            <div class="circle">2,500,000 a.C.</div>
+            <div class="content">
+              <h4>Edad de Piedra</h4>
+              <p>Herramientas de piedra y fuego.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="circle">3,000 a.C.</div>
+            <div class="content">
+              <h4>Edad de los Metales</h4>
+              <p>Uso de cobre, bronce e hierro.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="circle">3,500 a.C.</div>
+            <div class="content">
+              <h4>Mesopotamia</h4>
+              <p>Invención de la escritura cuneiforme.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="circle">3,100 a.C.</div>
+            <div class="content">
+              <h4>Egipto</h4>
+              <p>Pirámides y escritura jeroglífica.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="circle">2,600 a.C.</div>
+            <div class="content">
+              <h4>Valle del Indo</h4>
+              <p>Urbanismo y drenaje organizado.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="circle">2,200 a.C.</div>
+            <div class="content">
+              <h4>China (Huang He)</h4>
+              <p>Desarrollo agrícola y administración centralizada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia-section" class="materia-seccion">
+      <h2>Tecnología</h2>
+      <p class="desc">Panel de tecnología. Aquí podrás agregar evidencias futuramente.</p>
+    </section>
+
+    <section id="quimica-section" class="materia-seccion">
+      <h2>Química</h2>
+      <p class="desc">Panel de química. Aquí podrás agregar evidencias futuramente.</p>
+    </section>
+
+    <section id="matematicas-section" class="materia-seccion">
+      <h2>Matemáticas</h2>
+      <p class="desc">Panel de matemáticas. Aquí podrás agregar evidencias futuramente.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Josue Adan Rojas Perez</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 
 
