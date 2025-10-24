@@ -1,183 +1,55 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
+.timeline-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* suaviza el scroll en móviles */
+  white-space: nowrap;
+  padding: 1rem 0;
+  scroll-behavior: smooth; /* scroll suave al navegar */
 }
 
-body {
-  background-color: #0b1a0b;
-  color: #e0e0e0;
-}
-
-header {
-  text-align: center;
-  padding: 50px 10px;
-  background-color: #013220;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-}
-
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.1em;
-}
-
-section {
-  margin: 50px 0;
-  text-align: center;
-}
-
-section h2 {
-  color: #a3d9a5;
-  margin-bottom: 10px;
-}
-
-section p {
-  margin-bottom: 20px;
-  font-size: 1em;
-}
-
-/* Tarjetas */
-.card {
-  position: relative;
-  perspective: 1200px;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.card-inner {
-  position: relative;
-  background-color: #013220;
-  border-radius: 25px;
-  padding: 25px;
-  text-align: center;
-  transition: transform 0.5s, box-shadow 0.5s;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
-  overflow: hidden;
-  color: #e0e0e0;
-  z-index: 0; /* Canvas detrás */
-}
-
-/* Contenido visible por encima del canvas */
-.card-inner > *:not(.particles) {
-  position: relative;
-  z-index: 2;
-}
-
-.card-inner:hover {
-  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.9);
-}
-
-.card-inner h3 {
-  color: #a3d9a5;
-  margin-bottom: 20px;
-}
-
-/* Línea del tiempo */
-.timeline-visual {
-  display: flex;
-  justify-content: space-between;
+.timeline {
+  display: inline-flex;
   align-items: center;
-  margin: 20px 0;
+  gap: 1.5rem;
   position: relative;
-  padding: 0 10px;
+  padding: 2rem 0;
 }
 
-.timeline-visual::before {
-  content: '';
+.timeline::before {
+  content: "";
   position: absolute;
   top: 50%;
-  left: 10px;
-  right: 10px;
-  height: 4px;
-  background-color: #a3d9a5;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.timeline-visual .event {
-  position: relative;
-  width: 180px;
-  text-align: center;
-  z-index: 2;
-}
-
-.timeline-visual .event .circle {
-  width: 20px;
-  height: 20px;
-  background-color: #a3d9a5;
-  border-radius: 50%;
-  margin: 0 auto 10px auto;
-}
-
-/* Civilizaciones */
-.civilizations-visual {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.civ-card {
-  flex: 1 1 45%;
-  background-color: #013220;
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.civ-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-}
-
-.civ-card.mesopotamia { border-top: 4px solid #f2a900; }
-.civ-card.egipto { border-top: 4px solid #ff6f61; }
-.civ-card.india { border-top: 4px solid #00a1e4; }
-.civ-card.china { border-top: 4px solid #a3d9a5; }
-
-.civ-card h3 {
-  color: #a3d9a5;
-  margin-bottom: 5px;
-}
-
-/* Partículas */
-.particles {
-  position: absolute;
-  top: 0;
   left: 0;
+  height: 4px;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1; /* Menor que el contenido */
+  background: #ff8800;
+  transform: translateY(-50%);
 }
 
-/* Animación scroll */
-.animated {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.animated.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-footer {
+.event {
   text-align: center;
-  padding: 20px;
-  background-color: #013220;
-  color: #e0e0e0;
-  margin-top: 50px;
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.event .content {
+  background: rgba(255,136,0,0.2);
+  padding: 1rem;
+  border: 1px solid #ff8800;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.event .content:hover {
+  transform: translateY(-10px);
+  background: rgba(255,136,0,0.35);
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+  .timeline {
+    gap: 1rem;
+  }
+  .event {
+    width: 150px;
+  }
 }
