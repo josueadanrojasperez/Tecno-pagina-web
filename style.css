@@ -181,4 +181,16 @@ footer {
   color: #e0e0e0;
   margin-top: 50px;
 }
+.img-historia {
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
 
+.img-historia:hover {
+  transform: scale(1.05);
+}
